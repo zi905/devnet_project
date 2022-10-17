@@ -1,7 +1,13 @@
+#API program that translates the word
+#import requests
 import requests
+#post method to get token
 URL_AUTH = 'https://developers.lingvolive.com/api/v1.1/authenticate'
+#get method to translate
 URL_TRANSLATE = 'https://developers.lingvolive.com/api/v1/Minicard'
+#api key
 KEY='MjdhODQzZGMtZDgxMy00YmY2LWFiZDEtYTBjZjFjYmMyYTU3OmUzOGRmYzNkYjA5ZjQzMDBhOGZjZDIzZWQzMGIwNzFi'
+#headers of post
 headers_auth = {'Authorization': 'Basic ' + KEY}
 auth = requests.post(URL_AUTH,headers=headers_auth)
 print(auth)
@@ -22,4 +28,3 @@ if auth.status_code == 200:
             res=r.json()
             try: print(res['Translation']['Translation'])
             except: print('Uncorrect word')
-#API program that translates the word
